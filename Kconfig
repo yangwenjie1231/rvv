@@ -1,0 +1,20 @@
+# 最小 Kconfig 模板，用于 menuconfig 选择工具链
+menu "RVV Build Configuration"
+
+choice
+    prompt "Toolchain"
+    default TOOLCHAIN_RISCV64
+
+config TOOLCHAIN_NATIVE
+    bool "x86_64 native"
+
+config TOOLCHAIN_RISCV64
+    bool "RISCV64 cross (for SG2002)"
+
+endchoice
+
+config EXTRA_CXXFLAGS
+    string "Extra CXXFLAGS"
+    default "-O3 -march=rv64gcv0p7 -mrvv-vector-bits=128"
+
+endmenu

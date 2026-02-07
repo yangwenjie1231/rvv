@@ -1,0 +1,1 @@
+-std=c++17 -O3 -march=rv64gcv0p7 -mrvv-vector-bits=128
