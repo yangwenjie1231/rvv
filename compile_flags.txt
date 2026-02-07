@@ -1,1 +1,1 @@
--std=c++17 -O3 -march=rv64gcv0p7 -mrvv-vector-bits=128
+-std=c++17 -march=rv64gcv0p7 -mcmodel=medany -mabi=lp64d -O3 -mrvv-vector-bits=128

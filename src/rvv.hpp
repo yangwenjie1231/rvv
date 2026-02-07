@@ -84,4 +84,39 @@ void transpose(const float* A, float* B,
 void mv(const float* A, const float* x, float* y,
         std::size_t rows, std::size_t cols);
 
+// ------------------------------------------------------------------
+// int8 向量/矩阵运算（新增）
+// ------------------------------------------------------------------
+/**
+ * int8 向量加法 c = a + b
+ * @module rvv.core.add_i8
+ */
+void add_i8(const int8_t* a, const int8_t* b, int8_t* c, std::size_t n);
+
+/**
+ * int8 标量乘法 b = k * a
+ * @module rvv.core.scale_i8
+ */
+void scale_i8(const int8_t* a, int8_t k, int8_t* b, std::size_t n);
+
+/**
+ * int8 向量点积（累加到 int32）
+ * @module rvv.core.dot_i8
+ */
+int32_t dot_i8(const int8_t* a, const int8_t* b, std::size_t n);
+
+/**
+ * int8 矩阵加法 C = A + B
+ * @module rvv.core.add2d_i8
+ */
+void add2d_i8(const int8_t* A, const int8_t* B, int8_t* C,
+              std::size_t rows, std::size_t cols);
+
+/**
+ * int8 矩阵标量乘法 B = k * A
+ * @module rvv.core.scale2d_i8
+ */
+void scale2d_i8(const int8_t* A, int8_t k, int8_t* B,
+                std::size_t rows, std::size_t cols);
+
 }  // namespace rvv::core

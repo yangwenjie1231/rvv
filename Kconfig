@@ -1,15 +1,18 @@
-# 最小 Kconfig 模板，用于 menuconfig 选择工具链
+# 与「编译.md」一致的 Kconfig 模板
 menu "RVV Build Configuration"
 
 choice
     prompt "Toolchain"
-    default TOOLCHAIN_RISCV64
+    default TOOLCHAIN_THEAD_MUSL
 
 config TOOLCHAIN_NATIVE
     bool "x86_64 native"
 
+config TOOLCHAIN_THEAD_MUSL
+    bool "T-Head MUSL toolchain (SG2002)"
+
 config TOOLCHAIN_RISCV64
-    bool "RISCV64 cross (for SG2002)"
+    bool "Generic RISC-V toolchain"
 
 endchoice
 

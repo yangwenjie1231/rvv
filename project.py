@@ -31,8 +31,9 @@ def build():
     run(f"python3 tools/parse_sdkconfig.py {CFG_FILE}")
     # 2. 调用 pybind11 绑定代码生成器
     run("python3 tools/pybind_gen.py")
-    # 3. cmake 编译 + whl 打包
+    # 3. cmake 配置（默认用 Ninja，可改）
     run("cmake -B build -GNinja -DCMAKE_TOOLCHAIN_FILE=tools/toolchain.cmake")
+    # 4. 编译 + 打包
     run("cmake --build build")
     print("whl 包已输出到 build/dist/，可直接 pip install")
 
